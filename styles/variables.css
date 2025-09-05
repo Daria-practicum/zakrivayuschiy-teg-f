@@ -1,1 +1,16 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+
+:root {
+  --background-image: url(../images/background.png);
+  --font-main: 'Inter', sans-serif;
+  --font-accent: 'Press Start 2P', fantasy;
+  --font-text-weight: 400;
+  --font-title-weight: 700;
+
+  --main-color: #000;
+  --background-color: #fff;
+
+  --contour-color: #000;
+  --animation-fill-color: #f00;
+}
