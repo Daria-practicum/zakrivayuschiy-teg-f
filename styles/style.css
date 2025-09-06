@@ -68,7 +68,7 @@
 }
 
 .banner__text {
-  font-family: 'Press Start 2P';
+  font-family: var(--font-accent);
   font-style: normal;
   font-weight: var(--font-text-weight);
   font-size: clamp(14px, 0.85vw + 10.8px, 23px);
@@ -143,7 +143,7 @@
   object-position: right center;
 }
 
-.card__image.image-filter-two {
+.card__image.image-filter-few {
   filter: sepia(50%) saturate(100%);
 }
 
@@ -197,6 +197,7 @@
   block-size: 38px;
   font-size: 14px;
   line-height: 0.9;
+  transition: background-position 0.5s ease-in-out, box-shadow 0.3s ease;
 }
 
 .card__icon-button {
@@ -207,6 +208,7 @@
   block-size: 38px;
   align-items: center;
   cursor: pointer;
+  transition: border-color 0.3s ease;
 }
 
 .card__icon-button:focus {
@@ -238,10 +240,6 @@
   inline-size: 28px;
 }
 
-.core, .main-body {
-  fill: none;
-}
-
 .sparks {
   opacity: 0;
 }
@@ -266,10 +264,13 @@
   transition: fill 0.3s ease 0s;
 }
 
-.like-icon:active .core,
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s ease 0.03s;
+}
 .like-icon:active .main-body {
   fill: var(--animation-fill-color);
-  transition: fill 0.3s ease 0s;
+  transition: fill 0.3s ease;
 }
 
 .like-icon.is-liked .heart {
@@ -277,34 +278,29 @@
   transform-origin: center center;
 }
 
-.like-icon:not(.is-liked) .heart {
-  animation: none;
-  transform: scale(1);
-  transition: stroke 0.1s linear;
-}
 
 .like-icon:not(.is-liked) .contour {
-  stroke: var(--contour-color);
   transition: stroke 0.1s linear;
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparkles 0.3s ease-in 0.3s forwards;
+  animation: sparkles 0.3s ease-in 0.3s;
   transform-origin: center center;
 }
 
 .like-icon.is-liked .core {
   fill: var(--animation-fill-color);
+  transition: fill 0.3s ease;
 }
 
 .like-icon.is-liked .main-body {
   fill: var(--animation-fill-color);
-  transition: fill 0.3s ease 0.06s;
+  transition: fill 0.3s ease 0.05s;
 }
 
 .like-icon.is-liked .contour {
   fill: var(--animation-fill-color);
-  transition: fill 0.1s linear 0s;
+  transition: fill 0.3s linear 0.06s;
 }
 
 dialog.dialog {
@@ -320,7 +316,7 @@ dialog.dialog .dialog__container {
   gap: 30px;
 }
 
-dialog.dialog .dialog__container .dialog__text {
+.dialog__container .dialog__text {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -332,12 +328,12 @@ dialog.dialog .dialog__container .dialog__text {
   text-transform: uppercase;
 }
 
-dialog.dialog .dialog__container .dialog__icon {
+.dialog__container .dialog__icon {
   block-size: 39px;
   inline-size: 39px;
 }
 
-.dialog .dialog__container .dialog__button {
+.dialog .dialog__button {
   padding: 12px 0;
   inline-size: 100%;
   font-size: 14px;
@@ -383,7 +379,7 @@ button:not(.card__icon-button):focus-visible {
   box-shadow: 2px 2px 0 0 var(--main-color);
 }
 
-button:not(.card__icon-button):hover .button__text {
+button:hover .button__text {
   position: relative;
   color: var(--background-color);
   mix-blend-mode: difference;
